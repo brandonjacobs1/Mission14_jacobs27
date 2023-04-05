@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+//Typescript declaration of Movie objedct found in Movie.cs
 export type Movie = {
   movieID: number;
   title: string;
@@ -11,10 +12,11 @@ export type Movie = {
   edited: boolean;
   notes: string;
 };
+//Table that displays movies
 
 function MovieTable() {
   const [movies, setMovies] = useState<Movie[]>([]);
-
+  //Fetch data from API
   useEffect(() => {
     async function fetchMovies() {
       const response = await fetch("https://localhost:4000/movie");
@@ -24,7 +26,7 @@ function MovieTable() {
     }
     fetchMovies();
   }, []);
-
+  //Map movies to be dynamically displayed
   return (
     <table className="table table-striped">
       <thead>
