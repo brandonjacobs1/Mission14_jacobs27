@@ -12,6 +12,7 @@ public class MovieController : ControllerBase
     public MovieController(MovieContext context){
         _context = context;
     }
+    //Return all movies where edited = "Yes"
     [HttpGet]
     public IEnumerable<Movie> Get() {
         var allMovies = _context.Movies
